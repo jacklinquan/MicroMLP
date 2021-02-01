@@ -1,17 +1,17 @@
 """
 The MIT License (MIT)
-Copyright © 2018 Jean-Christophe Bos & HC² (www.hc2.fr)
+Copyright © 2018 Jean-Christophe Bos
 """
 
 
-from math import exp, log
-from ujson import load, dumps
-from utime import time
+from math  import exp, log
+from json  import load, dumps
+from time  import time
 
 try :
     from machine import rng
 except :
-    from urandom import random
+    from random  import random
 
 class MicroMLP :
 
@@ -542,7 +542,7 @@ class MicroMLP :
     def TanHActivation(x, derivative=False) :
         f = ( 2.0 / (1.0 + exp(-2.0 * x)) ) - 1.0
         if derivative :
-            return 1.0 - (f ** 2)         
+            return 1.0 - (f ** 2)
         return f
 
     @staticmethod
